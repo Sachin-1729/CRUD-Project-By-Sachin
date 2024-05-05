@@ -10,8 +10,9 @@ const cors = require('cors');
 app.use(cors());
 
 const userroutes = require('C:/Users/amris/OneDrive/Desktop/mernstack/backend/routes/userroute');
+const contactroutes = require('C:/Users/amris/OneDrive/Desktop/mernstack/backend/routes/contactroute');
 
-const User = require('./models/usermodel');
+
 app.use(express.json())
 
 
@@ -23,7 +24,8 @@ mongoose.connect(process.env.URI).then(() => {
 }).catch((err) => {
     console.log(err)
 })
-app.use( userroutes)
+app.use('/', userroutes); // Prefix with '/user' for user routes
+app.use('/sachin', contactroutes); // Prefix with '/contact' for contact routes
 
 
 

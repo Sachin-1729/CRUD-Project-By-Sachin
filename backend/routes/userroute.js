@@ -3,6 +3,8 @@ const express = require("express")
 const app = express()
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
+dotenv.config();
 
 
 
@@ -95,6 +97,10 @@ router.patch("/:id", async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 });
+
+
+
+
 
 module.exports = router;
 
